@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+- "node"
+
+sudo: required
+
+cache:
+  directories:
+    - node_modules
+
+services:
+  - docker
+
+install:
+- npm install --registry=https://npm-proxy.fury.io/${GEMFURY_API_KEY}/${GEMFURY_USER}/ --progress=false
+
+before_script:
+- docker-compose pull
+- docker-compose up
+
+script:
+- npm run test

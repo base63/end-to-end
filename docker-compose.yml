@@ -1,0 +1,60 @@
+version: '2'
+services:
+  postgres:
+    container_name: base63.end-to-end.postgres
+    image: postgres
+    ports:
+     - 10000:5432
+    environment:
+     - POSTGRES_USER=base63
+     - POSTGRES_PASSWORD=base63
+     - POSTGRES_DB=base63
+  identity:
+    container_name: base63.end-to-end.identity
+    image: base63/identity:latest
+    ports:
+     - 10001:10000
+    environment:
+     - DATABASE_URL=postgresql://base63:base63@base63.end-to-end.postgres:5432/base63
+    links:
+     - postgres
+    volumes:
+     - ./.env:/base63/.env
+  content:
+    container_name: base63.end-to-end.content
+    image: base63/content:latest
+    ports:
+     - 10002:10000
+    environment:
+     - DATABASE_URL=postgresql://base63:base63@base63.end-to-end.postgres:5432/base63
+    links:
+     - postgres
+     - identity
+    volumes:
+     - ./.env:/base63/.env
+  base63fe:
+    container_name: base63.end-to-end.base63fe
+    image: base63/base63fe:latest
+    ports:
+     - 10003:10000
+    environment:
+     - DATABASE_URL=postgresql://base63:base63@base63.end-to-end.postgres:5432/base63
+     - IDENTITY_SERVICE_HOST=base63.end-to-end.identity:10000
+    links:
+     - identity
+     - content
+    volumes:
+     - ./.env:/base63/.env
+  blogfe:
+    container_name: base63.end-to-end.blogfe
+    image: base63/blogfe:latest
+    ports:
+     - 10004:10000
+    environment:
+     - DATABASE_URL=postgresql://base63:base63@base63.end-to-end.postgres:5432/base63
+     - IDENTITY_SERVICE_HOST=base63.end-to-end.identity:10000
+    links:
+     - identity
+     - content
+    volumes:
+     - ./.env:/base63/.env

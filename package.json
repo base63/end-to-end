@@ -1,0 +1,41 @@
+{
+    "name": "@base63/end-to-end",
+    "version": "0.0.0",
+    "description": "End-to-end tests of the whole base63",
+    "author": "Base63 team",
+    "scripts": {
+        "build": "tsc",
+        "test": "cypress run"
+    },
+    "keywords": [
+        "common",
+        "client",
+        "tests"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/base63/end-to-end.git"
+    },
+    "homepage": "https://github.com/base63/end-to-end#readme",
+    "license": "MIT",
+    "main": "./index.js",
+    "types": "./index.d.ts",
+    "filesPack": {
+        "out": "e:.",
+        "README.md": "f:README.md",
+        "package.json": "f:package.json",
+        "tsconfig.json": "f:tsconfig.json"
+    },
+    "dependencies": {
+        "cypress": "=1.4.0"
+    },
+    "devDependencies": {
+        "@types/chai": "=4.0.8",
+        "@types/mocha": "=2.2.44",
+        "@types/node": "=8.0.57",
+        "chai": "=4.1.2",
+        "chai-string": "=1.4.0",
+        "mocha": "=4.0.1",
+        "typescript": "=2.6.2"
+    }
+}
