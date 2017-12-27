@@ -17,6 +17,8 @@ env:
   - GEMFURY_USER=base63
   # GEMFURY_API_KEY=???
   - secure: "K9aBf4V6AV8vHFDwpRwPyvqdTNREDZvbsnOAzGcrFscivYVMr5YblSbrQAiwS0i2p2iF7dMWFhiiDO+9bo7ZarLpwnV8diFwbEtXHo1JwGjHcSvKP4ZVBLbrX5qIVWl8rnwT4TqQnFvx0fYpwZOL/EYHACfFEXaj42fDlAokvt5MjpYPexaDyHLnAwX1N2T4RQnQHT+MWRmSCQeJGbVQvg1vSGyMeHQBQH/wunVteDKyDXioSE95KH3q4wq9xrqpDFGjoCxvrmMOEyWGll2YPn50CnEvreDJBerFJQL8GpgyUrW+1eCWHE9u6/xgSGX+GYD3K7YXL5s5yg4Puz9K01LRfmOUoVGYEoExvPPymutvrq4nnNwY8MUkilnHeorFAfHfDYWqcT4W+pFxtP3fJFoCxmoUYKN8y+U1X4gfU8qdQLAK8jBhlHtqOL01fx0PdjEjcuaEXIrvxajpfQFaIdl97fQfDqlHlcnEhMbf6XkDPiiLmtgs4yNXEF57Hj/IqeXZOXyVG+q15NzGUbpXzka01fcN/CG36yn6TiK2n4syN0gHdaUFSLFlpchZEV3n3ycsfJxBvcH7taYprJvcEzk4yy4V0N1JDwU3+GcPfyYReKhsGYTRDfXDWN06eS1FeIfBC06jZfVCzNBcJheKEzoEohMqMDU6CU1Z6VqfQEg="
+  # CYPRESS_RECORD_KEY=???
+  - secure: "n3QWviU8Ac+4O6XG5dW6+eYA53XVkjfWESX/rmiDCpLafh9WfHz3AdJT+6OsZFVU1TVzdVGSx+svLMUtsniavuP+8gCI0J/A+DCzhQhaP94T5cAE6m1r9E5OVcbOWxPaEiK4atEQMWP1Q3BBhq8HMEDyvNMNa1+ZALz8AjY2Qb73moVm6A6W6+l5/UHNVXTuVceIzb+wZ5edIOctFUUe1D6VLZqsSq8Y9+/AUbblDDzunb7BP9Nqiu/2kvLlVFV/kLVsFcOSqs/o6Yxfp+v0xX7Nl0RGP5pch3LwdIM5aZ0vpuFyb+FVbJYMQI3Ho6VxdH4KNeL3/pKcKeelEjhc7mQM++U7aTotfsvo0lwQ02kk2J6qpDBEGP6e9KV47OzYGW6lqRKtx9bL9bGSZq+DozEQp1MDfZqk5/SXxuYgkzSgmYOBw0kpZWEwNANCTUnPqnnzZrPWJgWn0rXiWabTZuLZpDKrphA2X/kvgCH3mX86ak8Ii+EmlXhYFS9aJW1h5iARQok8X7HdThHhvN4e/Z47hvJXbBKNtDR/OWMZ6d0fPcjPt4u+Tc6XIERP46QXjRGRIHodLBGwYZruZ8SSuaB5YK/9BtSLgsGd2Mo6UGPmIa2PLkQaRZbjF+rGQUZ31U+HIpexOFIPK9/XEoPXyAoIEAEW38lUkOZUUqjJtKc="
 
 install:
 - npm install --registry=https://npm-proxy.fury.io/${GEMFURY_API_KEY}/${GEMFURY_USER}/ --progress=false
@@ -25,6 +27,7 @@ before_script:
 - docker-compose pull
 - docker-compose up -d
 - sleep 60
+- npm run build
 
 script:
 - npm run test
