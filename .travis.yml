@@ -23,7 +23,7 @@ install:
 
 before_script:
 - docker-compose pull
-- docker-compose up --detached
+- docker-compose up -d
 - sleep 10
 
 script:
