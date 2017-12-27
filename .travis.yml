@@ -24,7 +24,7 @@ install:
 before_script:
 - docker-compose pull
 - docker-compose up -d
-- sleep 120
+- sleep 60
 
 script:
 - npm run test

@@ -1,3 +1,4 @@
 {
-    "integrationFolder": "src"
+    "integrationFolder": "out",
+    "sourceType": "module"
 }

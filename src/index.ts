@@ -1,3 +1,7 @@
+import 'cypress'
+import 'mocha'
+
+
 describe('base63fe', function () {
     describe('home page', function() {
         it('contains text', function() {

@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es2016",
+        "target": "es5",
         "module": "commonjs",
         "noImplicitAny": true,
         "noImplicitReturns": true,
@@ -14,9 +14,7 @@
 	      "experimentalDecorators": true
     },
     "include": [
-        "./src/**/*"
-    ],
-    "exclude": [
-	      "./node_modules"
+        "./src/**/*",
+        "./node_modules/cypress"
     ]
 }

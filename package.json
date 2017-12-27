@@ -4,8 +4,8 @@
     "description": "End-to-end tests of the whole base63",
     "author": "Base63 team",
     "scripts": {
-        "build": "tsc",
-        "test": "cypress run"
+        "build": "webpack -p",
+        "test": "webpack -p & cypress run"
     },
     "keywords": [
         "common",
@@ -27,9 +27,12 @@
         "tsconfig.json": "f:tsconfig.json"
     },
     "dependencies": {
-        "cypress": "=1.4.0"
+        "cypress": "=1.4.0",
+        "webpack": "=3.10.0",
+        "ts-loader": "=3.2.0"
     },
     "devDependencies": {
+        "@types/bluebird": "=3.5.19",
         "@types/chai": "=4.0.8",
         "@types/mocha": "=2.2.44",
         "@types/node": "=8.0.57",
